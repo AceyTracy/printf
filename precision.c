@@ -8,23 +8,23 @@
  * Return: new pointer
 */
 
-char *get_precision(char *s, params_t *params, va_list ap)
+char *get_precision(char *p, params_t *params, va_list ap)
 {
 	int d = 0;
 
-	if (*s != '.')
-		return (s);
-	s++;
-	if (*s == '*')
+	if (*p != '.')
+		return (p);
+	p++;
+	if (*p == '*')
 	{
 		d = va_arg(ap, int);
-		s++;
+		p++;
 	}
 	else
 	{
-		while (_isdigit(*s))
+		while (_isdigit(*p))
 			d = d * 10 + (*s++ - '0');
 	}
 	params->precision = d;
-	return (s);
+	return (p);
 }
